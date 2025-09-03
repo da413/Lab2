@@ -11,11 +11,26 @@ public class SpheresEditor : Editor
     {
         DrawDefaultInspector();
 
+
+        EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Select all Spheres"))
         {
             var allSpheresScript = GameObject.FindObjectsOfType<Spheres>();
             var allSpheresGameObjects = allSpheresScript.Select(spheres => spheres.gameObject).ToArray();
             Selection.objects = allSpheresGameObjects;
+        }
+        if (GUILayout.Button("Clear Selection"))
+        {
+            Selection.objects = new Object[] { (target as Spheres).gameObject};
+        }
+        EditorGUILayout.EndHorizontal();
+
+        if (GUILayout.Button("Disable / Enable all Spheres", GUILayout.Height(40)))
+        {
+            foreach (var spheres in GameObject.FindObjectsOfType<Spheres>(true))
+            {
+                spheres.gameObject.SetActive(!spheres.gameObject.activeSelf);
+            }
         }
     }
 }

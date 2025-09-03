@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spheres : MonoBehaviour
 {
+    public float size = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class Spheres : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
