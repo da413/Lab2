@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Cubes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float size = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void OnValidate()
     {
-        
+        transform.localScale = Vector3.one * size;
     }
 }
